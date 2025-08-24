@@ -17,7 +17,7 @@
 
 <b>Конвертация валюты локально:</b>
 <br />
-Запускам docker-compose exec app php yii currency-rate/convert $1 $2 $3, где $1, $2, $3 - это конвертируемая валюта, исходная валюта и количество конвертируемой валюты соответственно.
+Запускаем docker-compose exec app php yii currency-rate/convert $1 $2 $3, где $1, $2, $3 - это исходная валюта, целевая валюта и количество конвертируемой валюты соответственно.
 <br />
 Пример. Конвертируем 100 рублей в доллары: docker-compose exec app php yii currency-rate/convert RUB USD 100
 <br />
