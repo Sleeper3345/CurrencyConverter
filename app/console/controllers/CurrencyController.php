@@ -11,9 +11,6 @@ use yii\console\Controller;
 
 class CurrencyController extends Controller
 {
-    private readonly CurrencyCacheService $service;
-    private readonly FreeCurrencyComponent $freeCurrencyComponent;
-
     /**
      * CurrencyController constructor.
      * @param string $id
@@ -22,10 +19,8 @@ class CurrencyController extends Controller
      * @param FreeCurrencyComponent $freeCurrencyComponent
      * @param array $config
      */
-    public function __construct(string $id, Module $module, CurrencyCacheService $service, FreeCurrencyComponent $freeCurrencyComponent, array $config = [])
+    public function __construct(string $id, Module $module, private readonly CurrencyCacheService $service, private readonly FreeCurrencyComponent $freeCurrencyComponent, array $config = [])
     {
-        $this->service = $service;
-        $this->freeCurrencyComponent = $freeCurrencyComponent;
         parent::__construct($id, $module, $config);
     }
 

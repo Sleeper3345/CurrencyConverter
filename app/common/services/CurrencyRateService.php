@@ -11,7 +11,7 @@ use yii\db\Expression;
 
 class CurrencyRateService
 {
-    public function __construct(private CurrencyRepository $repository)
+    public function __construct(private readonly CurrencyRepository $repository)
     {
     }
 

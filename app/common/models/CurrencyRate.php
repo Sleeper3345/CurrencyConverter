@@ -2,13 +2,14 @@
 
 namespace common\models;
 
+use common\models\queries\CurrencyRateQuery;
 use yii\db\ActiveQuery;
 use yii\db\ActiveRecord;
 
 /**
  * @property int $currency_from_id Конвертируемая валюта
  * @property int $currency_to_id Получаемая валюта
- * @property float $rate Курс
+ * @property string $rate Курс
  * @property string $last_updated_at Актуальная дата курса
  *
  * @property-read Currency $currencyFrom
@@ -22,6 +23,14 @@ class CurrencyRate extends ActiveRecord
     public static function tableName(): string
     {
         return '{{%currency_rate}}';
+    }
+
+    /**
+     * @return CurrencyRateQuery
+     */
+    public static function find(): CurrencyRateQuery
+    {
+        return new CurrencyRateQuery(static::class);
     }
 
     /**
