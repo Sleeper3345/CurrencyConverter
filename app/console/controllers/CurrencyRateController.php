@@ -2,6 +2,7 @@
 
 namespace console\controllers;
 
+use common\helpers\NumberFormatterHelper;
 use common\services\CurrencyConverterService;
 use yii\base\Module;
 use yii\console\Controller;
@@ -23,22 +24,12 @@ class CurrencyRateController extends Controller
         $rate = $this->service->convert($currencyFrom, $currencyTo, $amount);
 
         if ($rate) {
-            $amountFormatted = $this->getFormattedNumber($amount);
-            $rateFormatted = $this->getFormattedNumber($rate['rate']);
+            $amountFormatted = NumberFormatterHelper::getFormattedNumber($amount);
+            $rateFormatted = NumberFormatterHelper::getFormattedNumber($rate['rate']);
 
             $this->stdout(sprintf('По состоянию на %s %s %s = %s %s', $rate['last_updated_at'], $amountFormatted, $currencyFrom, $rateFormatted, $currencyTo));
         } else {
             $this->stderr('Курс не найден!');
         }
-    }
-
-    /**
-     * @param float $number
-     * @return string
-     */
-    private function getFormattedNumber(float $number): string
-    {
-        $amountFormatted = number_format($number, 10, '.', '');
-        return rtrim(rtrim($amountFormatted, '0'), '.');
     }
 }

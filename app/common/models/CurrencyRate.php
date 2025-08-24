@@ -7,8 +7,8 @@ use yii\db\ActiveQuery;
 use yii\db\ActiveRecord;
 
 /**
- * @property int $currency_from_id Конвертируемая валюта
- * @property int $currency_to_id Получаемая валюта
+ * @property int $currency_from_id Исходная валюта
+ * @property int $currency_to_id Целевая валюта
  * @property string $rate Курс
  * @property string $last_updated_at Актуальная дата курса
  *
