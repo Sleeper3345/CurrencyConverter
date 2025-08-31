@@ -2,7 +2,6 @@
 
 namespace console\controllers;
 
-use common\components\FreeCurrencyComponent;
 use common\enums\CurrencyEnum;
 use common\jobs\SaveCurrenciesJob;
 use common\services\CurrencyCacheService;
@@ -16,10 +15,9 @@ class CurrencyController extends Controller
      * @param string $id
      * @param Module $module
      * @param CurrencyCacheService $service
-     * @param FreeCurrencyComponent $freeCurrencyComponent
      * @param array $config
      */
-    public function __construct(string $id, Module $module, private readonly CurrencyCacheService $service, private readonly FreeCurrencyComponent $freeCurrencyComponent, array $config = [])
+    public function __construct(string $id, Module $module, private readonly CurrencyCacheService $service, array $config = [])
     {
         parent::__construct($id, $module, $config);
     }
